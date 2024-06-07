@@ -1,0 +1,4 @@
+// simple json file into api(localhost:4000)
+
+// step 1:  npm install -g json-server
+// step 2: json-server --watch data/db.json --port 4000

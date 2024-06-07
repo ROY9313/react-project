@@ -20,13 +20,13 @@ export const todoSlice = createSlice({
         removeTodo: (state, action) => {
             state.todos = state.todos.filter((todo) => todo.id !== action.payload )
         },
-        updateTodo: (state, action) => {
-            const todo = state.todos.find((todo) => todo.id === action.payload.id)
-            if (todo) {
-                todo.text = action.payload.text
+            updateTodo: (state, action) => {
+                const todo = state.todos.find((todo) => todo.id === action.payload.id)
+                if (todo) {
+                    todo.text = action.payload.text
+                }
             }
-        }
-    }
+        }   
 })
 
 export const {addTodo, removeTodo, updateTodo} = todoSlice.actions
