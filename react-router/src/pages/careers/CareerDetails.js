@@ -20,11 +20,10 @@ export default function CareerDetails() {
       try {
         const response = await axios.get(`http://localhost:4000/careers/${id}`);
         setCareer(response.data);
-        setFormData({ // Pre-populate form data
+        setFormData({ 
           title: response.data.title,
           location: response.data.location,
           salary: response.data.salary,
-          // ... other career details
         });
       } catch (error) {
         setError(error);
@@ -34,7 +33,7 @@ export default function CareerDetails() {
     };
 
     fetchData();
-  }, [id]); // Re-fetch data on ID change (dependency array)
+  }, [id])
 
   const handleChange = (event) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
@@ -43,11 +42,10 @@ export default function CareerDetails() {
   const handleUpdate = async () => {
     try {
       const response = await axios.put(`http://localhost:4000/careers/${id}`, formData);
-      setCareer(response.data); // Update state with updated data
-      setIsEditing(false); // Close editing mode
+      setCareer(response.data); 
+      setIsEditing(false); 
     } catch (error) {
       console.error('Error updating career:', error);
-      // Handle errors gracefully, e.g., display an error message to the user
     }
   };
 
@@ -58,9 +56,9 @@ export default function CareerDetails() {
     <div className="career-details">
       {isLoading && <p>Loading...</p>}
       {error && <p>Error: {error.message}</p>}
-      {!isLoading && !error && career && ( // Ensure career is fetched before rendering
+      {!isLoading && !error && career && ( 
         <>
-          {isEditing ? ( // Render edit form
+          {isEditing ? (
             <form onSubmit={handleUpdate}>
               <h2>Edit Career Details</h2>
               <label htmlFor="title">Title:</label>
@@ -72,7 +70,7 @@ export default function CareerDetails() {
               <button type="submit">Save Changes</button>
               <button type="button" onClick={() => setIsEditing(false)}>Cancel</button>
             </form>
-          ) : ( // Render career details
+          ) : ( 
             <>
               <h2>Career Details for {career.title}</h2>
               <p>Starting salary: {career.salary}</p>

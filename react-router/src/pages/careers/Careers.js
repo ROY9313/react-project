@@ -32,24 +32,22 @@ export default function Careers() {
   const handleDelete = async (careerId) => {
     try {
       const confirmation = window.confirm('Are you sure you want to delete this career?');
-      if (!confirmation) return; // Exit if user cancels
+      if (!confirmation) return;
 
       const response = await axios.delete(`http://localhost:4000/careers/${careerId}`);
-      setCareers(careers.filter((career) => career.id !== careerId)); // Update state
+      setCareers(careers.filter((career) => career.id !== careerId));
     } catch (error) {
       console.error('Error deleting career:', error);
-      // Handle errors gracefully, e.g., display an error message to the user
     }
   };
 
   const handleCreate = async () => {
     try {
       const response = await axios.post('http://localhost:4000/careers', newCareerData);
-      setCareers([...careers, response.data]); // Update state with new career
-      setNewCareerData({ title: '', location: '', salary: '' }); // Reset form data
+      setCareers([...careers, response.data]); 
+      setNewCareerData({ title: '', location: '', salary: '' }); 
     } catch (error) {
       console.error('Error creating career:', error);
-      // Handle errors gracefully, e.g., display an error message to the user
     }
   };
 
