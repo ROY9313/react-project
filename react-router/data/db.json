@@ -1,12 +1,6 @@
 {
   "careers": [
     {
-      "id": "1",
-      "title": "Leader",
-      "salary": 65000,
-      "location": "baramuta Region"
-    },
-    {
       "title": "Plumber honey",
       "location": "Bowser's Castle",
       "salary": "45000",
@@ -41,6 +35,18 @@
       "title": "Food Tester",
       "salary": 30000,
       "location": "London, UK"
+    },
+    {
+      "title": "frontend developer",
+      "location": "india",
+      "salary": "55000",
+      "id": "8"
+    },
+    {
+      "title": "test1",
+      "location": "test100",
+      "salary": "1000",
+      "id": "4975"
     }
   ]
 }

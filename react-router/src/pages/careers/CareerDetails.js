@@ -9,9 +9,6 @@ export default function CareerDetails() {
   const [error, setError] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
   const [formData, setFormData] = useState({
-    title: '',
-    location: '',
-    salary: '',
   });
 
   useEffect(() => {
