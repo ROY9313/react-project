@@ -1,9 +1,10 @@
-import {useCallback} from 'react'
+import React,{useCallback} from 'react'
 import { useForm } from 'react-hook-form'
 import {Button, Input, Select, RTE} from '../index'
 import appwriteService from "../../appwrite/config"
 import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
+import PropTypes from 'prop-types'
 
 
 function PostForm({post}) {
@@ -126,5 +127,16 @@ function PostForm({post}) {
     </form>
   )
 }
+
+PostForm.propTypes = {
+    post: PropTypes.shape({
+        $id: PropTypes.string,
+        title: PropTypes.string,
+        slug: PropTypes.string,
+        content: PropTypes.string,
+        status: PropTypes.string,
+        featuredImage: PropTypes.string,
+    }),
+};
 
 export default PostForm
