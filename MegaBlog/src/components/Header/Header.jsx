@@ -1,5 +1,5 @@
-import { Container, Logo, Logout, LogoutBtn } from "../index";
-import { Link, Navigate } from "react-router-dom";
+import { Container, Logo, LogoutBtn } from "../index";
+import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
@@ -33,7 +33,8 @@ function Header() {
       slug: "/add-post",
       active: authStatus,
     },
-  ];
+  ]
+
   return (
     <Header clasname="py-3 shadow bg-gray-500">
       <Container>
@@ -44,8 +45,8 @@ function Header() {
             </Link>
           </div>
           <ul className="flex ml-auto">
-            {navItems.map(() =>
-              navItems.active ? (
+            {navItems.map((item) =>
+              item.active ? (
                 <li key={item.name}>
                   <button
                     onClick={() => navigate(item.slug)}
@@ -68,4 +69,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default Header

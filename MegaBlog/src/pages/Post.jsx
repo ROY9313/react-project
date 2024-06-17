@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { Link, useNavigate, useParams, usesParams } from "react-router-dom"
+import { Link, useNavigate, useParams} from "react-router-dom"
 import appwriteService from "../appwrite/config"
 import {Button, Container} from "../components"
 import parse from "html-react-parser"

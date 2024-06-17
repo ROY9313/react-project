@@ -1,17 +1,17 @@
 import React,{useCallback} from 'react'
 import { useForm } from 'react-hook-form'
-import {Button, Input, Select, RTE} from '../index'
+import {Button, Input, Select, RTE} from '..'
 import appwriteService from "../../appwrite/config"
 import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import PropTypes from 'prop-types'
 
 
-function PostForm({post}) {
+export default function PostForm({post}) {
     const {register, handleSubmit, watch, setValue,control, getValues} = useForm({
         defaultValues: {
             title: post?.title || ' ',
-            slug: post?.slug || ' ',
+            slug: post?.$id || ' ',
             content: post?.content || ' ',
             status:post?.status || 'active',
         },
@@ -54,7 +54,8 @@ function PostForm({post}) {
 
     const slugTransform = useCallback((value) => {
         if(value && typeof value === 'string'){
-            return value.trim()
+            return value
+            .trim()
             .toLowerCase()
             .replace(/^[a-zA-z\d\s]+/g,'-')
             .replace(/\s/g, '-')
@@ -138,5 +139,3 @@ PostForm.propTypes = {
         featuredImage: PropTypes.string,
     }),
 };
-
-export default PostForm

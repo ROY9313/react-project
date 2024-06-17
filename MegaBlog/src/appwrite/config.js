@@ -48,7 +48,6 @@ export class Service {
       );
     } catch (error) {
       console.log("Appwrite serive :: updatePost :: error", error);
-      return false;
     }
   }
 
@@ -59,7 +58,7 @@ export class Service {
         conf.appwriteCollectionId,
         slug
       );
-      return true;
+      return true
     } catch (error) {
       console.log("Appwrite serive :: deletePost :: error", error);
       return false;
@@ -72,10 +71,10 @@ export class Service {
         conf.appwriteDatabaseId,
         conf.appwriteCollectionId,
         slug
-      );
+      )
     } catch (error) {
       console.log("Appwrite serive :: getPost :: error", error);
-      return false;
+      return false
     }
   }
 
@@ -84,11 +83,11 @@ export class Service {
       return await this.databases.listDocuments(
         conf.appwriteDatabaseId,
         conf.appwriteCollectionId,
-        queries
-      );
+        queries,
+      )
     } catch (error) {
       console.log("Appwrite serive :: getPosts :: error", error);
-      return false;
+      return false
     }
   }
 
@@ -100,7 +99,7 @@ export class Service {
         conf.appwriteBucketId,
         ID.unique(),
         file
-      );
+      )
     } catch (error) {
       console.log("Appwrite serive :: uploadFile :: error", error);
       return false;
