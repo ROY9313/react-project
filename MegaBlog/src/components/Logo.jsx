@@ -1,8 +1,8 @@
-import React from 'react'
+
 
 function Logo(width = '100%') {
   return (
-    <div>Logo</div>
+    <img src="../../logo.jpg" alt="Logo" style={{ width }} />
   )
 }
 
